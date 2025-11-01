@@ -34,7 +34,7 @@ async def main():
     # Configure a 2-level deep crawl
     config = CrawlerRunConfig(
         deep_crawl_strategy=BFSDeepCrawlStrategy(
-            max_depth=5, include_external=False, max_pages=50
+            max_depth=5, include_external=False, max_pages=5
         ),
         scraping_strategy=LXMLWebScrapingStrategy(),
         verbose=True,
@@ -43,7 +43,7 @@ async def main():
         exclude_external_links=True,
         exclude_social_media_domains=True,
     )
-    scrape_url = "https://omahakidsdentist.com/"
+    scrape_url = "https://webscraper.io/test-sites/e-commerce/allinone"
     async with AsyncWebCrawler() as crawler:
         results = await crawler.arun(scrape_url, config=config)
 
